@@ -39,6 +39,7 @@ var QueryActions = React.createClass({
   render: function() {
     var saveMsg,
         saveBtn,
+        cloneBtn,
         deleteBtn,
         actionsSupported = true,
         runButtonClasses = classNames({
@@ -68,6 +69,11 @@ var QueryActions = React.createClass({
           {isPersisted ? 'Update' : 'Save'}
         </button>
       );
+      cloneBtn = (
+        <button type="button" className="btn btn-link clone-query" onClick={actionsSupported ? this.props.cloneQueryClick : function(){}} role="clone-query" disabled={this.props.model.loading || !actionsSupported}>
+          Clone
+        </button>
+      );
       deleteBtn = (
         <button type="button" role="delete-query" className="btn btn-link" onClick={actionsSupported ? this.props.removeClick : function(){}} disabled={!actionsSupported}>
           Delete
@@ -86,6 +92,7 @@ var QueryActions = React.createClass({
             </div>
             <div className="manage-group pull-left">
               {saveBtn}
+              {cloneBtn}
               {deleteBtn}
             </div>
           </div>

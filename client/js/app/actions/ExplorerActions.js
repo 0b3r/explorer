@@ -335,6 +335,7 @@ var ExplorerActions = {
 
   save: function(persistence, sourceId) {
     var saveType = ExplorerUtils.saveType(ExplorerStore.get(sourceId));
+    console.log(saveType);
     var persistenceFunction = saveType === 'save' ? 'create' : 'update';
     AppDispatcher.dispatch({
       actionType: ExplorerConstants.EXPLORER_SAVING,

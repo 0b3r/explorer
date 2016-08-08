@@ -27,6 +27,10 @@ var FilterValueFields = React.createClass({
     this.props.handleChange(event.target.name, event.target.value);
   },
 
+  handleKeyPress: function(event) {
+    this.props.handleKeyActions(event.key);
+  },
+
   setValueState: function(event) {
     var updates = {};
     updates[event.target.name] = event.target.value;
@@ -123,6 +127,7 @@ var FilterValueFields = React.createClass({
                value={this.state.property_value}
                onChange={this.setValueState}
                onBlur={this.handleChangeWithEvent}
+               onKeyPress={this.handleKeyPress}
                placeholder={this.getInputPlaceholder()}
                readOnly={this.props.filter.coercion_type === 'Null'}/>
       );

@@ -25,10 +25,15 @@ var Filter = React.createClass({
     this.props.handleChange(this.props.index, e.target.name, e.target.value);
   },
 
+  handleKeyActions: function(key) {
+    this.props.handleKeyActions(key);
+  },
+
   buildValueFormGroup: function() {
     return (
       <FilterValueFields filter={this.props.filter}
                          filterOperators={this.props.filterOperators}
+                         handleKeyActions={this.handleKeyActions}
                          handleChange={this.handleChange} />
     );
   },
